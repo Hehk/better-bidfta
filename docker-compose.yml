@@ -1,14 +1,15 @@
 version: '3'
 services:
+
   product-service:
-    build:
-      context: ./packages/product-service
-      dockerfile: Dockerfile
+    build: ./packages/product-service
     ports:
      - "8080:8080"
     depends_on:
       - cache
+    command: npm start
+
   cache:
-    build:
-      context: ./packages/cache
-      dockerfile: Dockerfile
+    build: ./packages/cache
+    ports:
+      - 6379
