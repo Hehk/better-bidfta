@@ -17,7 +17,7 @@ const server = new GraphQLServer({
   options,
 });
 
-const db = redis.createClient();
+const db = redis.createClient({ host: 'redis' });
 db.on('error', err => console.log(`Error ${err}`));
 
 server.start(_ => console.log(`
